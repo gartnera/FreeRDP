@@ -478,6 +478,23 @@ BOOL xf_keyboard_handle_special_keys(xfContext* xfc, KeySym keysym)
 			}
 		}
 	}
+	if (keysym == XK_Up)
+	{
+		if (mod.Ctrl && mod.Alt)
+		{
+			system("bash -c \"xdotool set_desktop $(expr $(xdotool get_desktop) - 1)\"");
+			return TRUE;
+		}
+	}
+	if (keysym == XK_Down)
+	{
+		if (mod.Ctrl && mod.Alt)
+		{
+			system("bash -c \"xdotool set_desktop $(expr $(xdotool get_desktop) + 1)\"");
+			return TRUE;
+		}
+
+	}
 
 	if ((keysym == XK_c) || (keysym == XK_C))
 	{
